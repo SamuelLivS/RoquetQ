@@ -27,7 +27,6 @@
             </a>
 
             <div class="buttons">
-                <!-- FUNCIONALIDADE PARA COPIAR O ID DA SALA ASSIM QUE ESSE "BUTTON" FOR CLICADO. -->
                 <div class="button outlined" id="room-id" data-id="<%= roomId %>">
                     #<%= roomId %>
                         <img src="/images/copy.svg" alt="Copiar número da sala">
@@ -46,7 +45,7 @@
                 <h2>Faça sua pergunta</h2>
                 <form action="/question/create/<%= roomId %> " method="post">
                     <label class="sr-only" for="question">O que você quer perguntar?</label>
-                    <textarea name="question" id="question" placeholder="O que você quer perguntar?"></textarea>
+                    <textarea name="question" id="question" placeholder="O que você quer perguntar?" required></textarea>
                     <footer>
                         <div>
                             <img src="/images/lock.svg" alt="Sua pergunta é anônima">

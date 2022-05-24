@@ -35,3 +35,12 @@ function handleClick(event, check = true) {
 
     modal.open()
 }
+
+document.querySelector('#room-id').addEventListener('click', event => {
+    navigator.clipboard.writeText(event.target.dataset.id)
+})
+
+document.querySelector('#question').addEventListener('input', event => {
+    let text = event.target.value
+    event.target.value = text.trim().length < 1 ? '' : text
+})
