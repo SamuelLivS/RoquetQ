@@ -2,11 +2,11 @@
 
 Projeto desenvolvido na semana NLW together... Um pouquinho atrasado kkk
 
-## Projeto
+## Projeto 🖥️
 
 O Rocket.Q é uma aplicação de interação através de perguntas, sendo possível criar uma sala para internautas anônimos fazerem perguntas e o criador da sala em posse de uma senha gerenciar essas perguntas e marcar como lidas.
 
-## Tecnologias
+## Tecnologias 🚀
 
 - HTML
 - CSS
@@ -16,7 +16,7 @@ O Rocket.Q é uma aplicação de interação através de perguntas, sendo possí
 - Express
 - SQLite
 
-## Melhorias em desenvolvimento
+## Melhorias em desenvolvimento 📑
 
 ### Perguntas:
 - Função para editar pergunta.
@@ -31,7 +31,7 @@ O Rocket.Q é uma aplicação de interação através de perguntas, sendo possí
 - Copiar ID da sala quando butão clicado.
 - Verificar o que falta de responsividade.
 
-## O que aprendi?
+## O que aprendi? 💡🔥
 
 - Usar medidas relativas de uma melhor maneira no CSS.
 - Desenvolver páginas dinâmicas com EJS.
@@ -40,7 +40,7 @@ O Rocket.Q é uma aplicação de interação através de perguntas, sendo possí
 - Integrar todo o projeto com SQLite.
 - Revisão e aplicação do conceito de JS assíncrono.
 
-## Créditos
+## Créditos 💪🖤
 
 - [Projeto Original](https://github.com/rocketseat-education/nlw-06-discover)
 
