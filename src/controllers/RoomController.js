@@ -3,13 +3,18 @@ const Database = require('../db/config')
 module.exports = {
     async create(req, res) {
         const db = await Database()
-        const pass = req.body.password //Verificar se senha vazia
+        const pass = req.body.password
         let roomId = ''
         let isRoom = true
 
         while (isRoom) {
             for (let i = 0; i < 6; i++) {
-                roomId += Math.floor(Math.random() * 10) // Mudar tipo de dado do ID da tabela rooms
+                // Tipo int do BD ignora zeros a esquerda... EX: 005846 => 5846
+                if (i == 0) {
+                    roomId += Math.ceil(Math.random() * 8)
+                } else {
+                    roomId += Math.floor(Math.random() * 10)
+                }
             }
 
             const roomsExistIds = await db.all(`SELECT id FROM rooms`)
@@ -37,16 +42,16 @@ module.exports = {
         const questions = await db.all(`SELECT * FROM questions WHERE room=${roomId} AND read=0`)
         const questionsRead = await db.all(`SELECT * FROM questions WHERE room=${roomId} AND read=1`)
         let isNoQuestion
-        
-        if(questions.length == 0 && questionsRead.length == 0){
+
+        if (questions.length == 0 && questionsRead.length == 0) {
             isNoQuestion = true
         }
-        
+
         await db.close()
-        res.render('room', {roomId, questions, questionsRead, isNoQuestion})
+        res.render('room', { roomId, questions, questionsRead, isNoQuestion })
     },
 
-    enter(req, res){
+    enter(req, res) {
         const roomId = req.body.roomId
         res.redirect(`/room/${roomId}`)
     }
