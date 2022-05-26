@@ -45,7 +45,8 @@
                 <h2>Faça sua pergunta</h2>
                 <form action="/question/create/<%= roomId %> " method="post">
                     <label class="sr-only" for="question">O que você quer perguntar?</label>
-                    <textarea name="question" id="question" placeholder="O que você quer perguntar?" required></textarea>
+                    <textarea name="question" id="question" placeholder="O que você quer perguntar?"
+                        required></textarea>
                     <footer>
                         <div>
                             <img src="/images/lock.svg" alt="Sua pergunta é anônima">
@@ -61,7 +62,7 @@
                 <div class="questions">
 
                     <% if (isNoQuestion){ %>
-                        <%- include('parts/no-question') %> 
+                        <%- include('parts/no-question') %>
                     <% } %>
 
                     <% questions.forEach(question=> { %>
@@ -72,43 +73,48 @@
                                     <img src="/images/user.svg" alt="Avatar">
                                 </div>
                                 <div class="question">
-                                    <p>
+                                    <p id="<%= question.id %>Edit">
                                         <%= question.title %>
                                     </p>
                                 </div>
                             </div>
                             <div class="actions">
-                                <a href="#" class="check" data-id="<%= question.id %> ">
+                                <a href="#" class="check" data-id="<%= question.id %>">
                                     <img src="/images/check.svg" alt="Marcar como lida">
-                                    Marcar como lida
+                                                Marcar como lida
                                 </a>
-                                <!-- ADICIONAR BUTTON PARA EDITAR PERGUNTA -->
-                                <a href="#" class="delete" data-id="<%= question.id %> ">
+                                <a href="#" class="edit" data-id="<%= question.id %>">
+                                    <img src="/images/edit.svg" alt="Editar pergunta">
+                                    Editar
+                                </a>
+                                <a href="#" class="delete" data-id="<%= question.id %>">
+                                    <img src="/images/trash.svg" alt="Excluir pergunta">
+                                                Excluir
+                                </a>
+                            </div>
+                        </div>
+                    <% }) %>
+
+                    <% questionsRead.forEach(questionRead=> { %>
+                        <div class="question-wrapper read">
+                            <div class="question-content">
+                                <div class="user">
+                                    <img src="/images/user.svg" alt="Avatar">
+                                </div>
+                                <div class="question">
+                                    <p>
+                                        <%= questionRead.title %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <a href="#" class="delete" data-id="<%= questionRead.id %>">
                                     <img src="/images/trash.svg" alt="Excluir">
                                     Excluir
                                 </a>
                             </div>
                         </div>
-                        <% }) %>
-
-                        <% questionsRead.forEach(questionRead=> { %>
-                            <div class="question-wrapper read">
-                                <div class="question-content">
-                                    <div class="user">
-                                        <img src="/images/user.svg" alt="Avatar">
-                                    </div>
-                                    <div class="question">
-                                        <p><%= questionRead.title %></p>
-                                    </div>
-                                </div>
-                                <div class="actions">
-                                    <a href="#" class="delete" data-id="<%= questionRead.id %>">
-                                        <img src="/images/trash.svg" alt="Excluir">
-                                        Excluir
-                                    </a>
-                                </div>
-                            </div>
-                        <%}); %>
+                    <%}); %>
 
                 </div>
             </section>
@@ -122,9 +128,14 @@
             <h2>Excluir pergunta</h2>
             <p>Tem certeza que você deseja excluir essa pergunta?</p>
             <form action="#" method="post">
-                <!-- SE AÇÃO='EDITAR' ABRIR UM OUTRO INPUT COM A PERGUNTA AQUI -->
+                <!-- SE AÇÃO='EDITAR' ABRIR UM OUTRO INPUT COM A PERGUNTA -->
+                <div id="editInput">
+                    <label class="sr-only" for="editQuestio">Edite sua pergunta</label>
+                    <input type="text" name="editQuestion" id="editQuestion" placeholder="Edite sua questão">
+                </div>
+
                 <label class="sr-only" for="password">Digite sua senha admin</label>
-                <input type="password" name="password" id="password" placeholder="Digite sua senha">
+                <input type="password" name="password" id="password" placeholder="Digite sua senha" autocomplete="on">
                 <div class="buttons">
                     <div class="button grey cancel">Cancelar</div>
                     <button>Sim, excluir</button>
