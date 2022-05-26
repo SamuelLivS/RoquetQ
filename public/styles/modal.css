@@ -62,3 +62,13 @@
 .modal-wrapper .modal .buttons>.button {
     padding: 1.3rem 3.2rem;
 }
+
+/* Edit Input */
+
+#editInput {
+    display: none;
+}
+
+#editInput > input{
+    margin-bottom: .8rem;
+}

@@ -10,6 +10,7 @@ module.exports = {
         while (isRoom) {
             for (let i = 0; i < 6; i++) {
                 // Tipo int do BD ignora zeros a esquerda... EX: 005846 => 5846
+                // Logo, aqui eu evito que o sistema gere uma sala que comece com zero.
                 if (i == 0) {
                     roomId += Math.ceil(Math.random() * 8)
                 } else {
