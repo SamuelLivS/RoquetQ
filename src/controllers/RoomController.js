@@ -44,7 +44,6 @@ module.exports = {
         //Verificar se sala existe
         const roomsExistIds = await db.all(`SELECT id FROM rooms`)
         roomExist = roomsExistIds.some(roomExistId => roomExistId.id === Number(roomId))
-        console.log(roomExist)
 
         if (roomExist) {
             const questions = await db.all(`SELECT * FROM questions WHERE room=${roomId} AND read=0`)

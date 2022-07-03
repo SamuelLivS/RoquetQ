@@ -1,4 +1,4 @@
-# RoqueQ
+# RoquetQ
 
 Projeto desenvolvido na semana NLW together... Um pouquinho atrasado kkk.
 
@@ -19,7 +19,7 @@ O Rocket.Q é uma aplicação de interação através de perguntas, sendo possí
 ## Melhorias em desenvolvimento 📑
 
 ### Perguntas:
-- Função para editar pergunta.
+- Função para editar pergunta. ✔️
 - Proibir perguntas vazias. ✔️
 
 ### Salas:
